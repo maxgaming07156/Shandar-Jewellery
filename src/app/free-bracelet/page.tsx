@@ -16,11 +16,6 @@ export default function FreeBracelet() {
         <div className="hidden aspect-square overflow-hidden border border-champagne md:block" role="img" aria-label="Illustration of a gold bracelet"><ProductArt category="bracelets" tone="pearl" /></div>
       </div>
       <div className="mt-10"><p className="mb-4 text-sm">Fields marked <span className="text-maroon">*</span> are required.</p><FreeBraceletForm /></div>
-      <section className="mt-10 border border-champagne bg-white p-5 text-sm" aria-labelledby="privacy-h">
-        <h2 id="privacy-h" className="text-xl text-maroon">Privacy notice</h2>
-        <p className="mt-2">We collect your name, email, mobile number and delivery address only to review and process this request and contact you about it. When you submit, your details are sent through EmailJS, our email service provider, to the Shandar Jewellery inbox. We do not store them in your browser, use them for marketing, or subscribe you to anything. This site has no custom backend yet; a full privacy policy page will be added.</p>
-        <p className="mt-2">Questions? <WhatsAppLink message={WA.bracelet} className="text-maroon underline">Ask on WhatsApp</WhatsAppLink></p>
-      </section>
     </div>
   );
 }

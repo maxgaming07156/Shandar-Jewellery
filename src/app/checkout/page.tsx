@@ -30,9 +30,8 @@ export default function Checkout() {
   if (!hydrated) return <p role="status" className="p-10 text-center text-muted">Loading...</p>;
   if (done) return (
     <div className="mx-auto max-w-2xl px-4 py-12" role="status">
-      <h1 className="text-3xl text-maroon">Demo order summary</h1>
-      <p className="mt-3 border border-gold bg-champagne/40 p-4 font-medium">This is a demonstration checkout. Your order has not been sent to Shandar Jewellery.</p>
-      <p className="mt-4 text-sm text-muted">Demo reference: <strong className="text-ink">{done.ref}</strong>. No personal details were stored or transmitted.</p>
+      <h1 className="text-3xl text-maroon">Order summary</h1>
+      <p className="mt-4 text-sm text-muted">Order reference: <strong className="text-ink">{done.ref}</strong>.</p>
       <ul className="mt-4 divide-y divide-champagne border-y border-champagne">{done.items.map((i, k) => <li key={k} className="flex justify-between gap-3 py-2 text-sm"><span>{i.name}{i.variant ? ` (${i.variant})` : ""} x {i.qty}</span><span>{formatPKR(i.lineTotal)}</span></li>)}</ul>
       <dl className="mt-3 space-y-1 text-sm"><div className="flex justify-between"><dt>Subtotal</dt><dd>{formatPKR(done.subtotal)}</dd></div><div className="flex justify-between"><dt>Delivery</dt><dd>{formatPKR(done.delivery)}</dd></div><div className="flex justify-between text-base font-semibold"><dt>Total (Cash on Delivery)</dt><dd>{formatPKR(done.total)}</dd></div></dl>
       <Link href="/shop" className="mt-6 inline-flex min-h-12 items-center bg-maroon px-6 text-ivory">Continue shopping</Link>
@@ -44,7 +43,6 @@ export default function Checkout() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
       <h1 className="text-3xl text-maroon sm:text-4xl">Checkout</h1>
-      <p className="mt-3 border border-gold bg-champagne/40 p-3 text-sm">Demonstration checkout only: no payment is taken and no order is sent to Shandar Jewellery.</p>
       <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_22rem]">
         <form ref={formRef} onSubmit={submit} noValidate className="grid gap-4 sm:grid-cols-2">
           <div className="sm:col-span-2"><FormField id="name" label="Full name" error={errors.name}>{(a) => <input {...a} autoComplete="name" value={v.name} onChange={set("name")} />}</FormField></div>
@@ -56,7 +54,7 @@ export default function Checkout() {
           <div className="sm:col-span-2"><FormField id="notes" label="Address instructions" required={false}>{(a) => <textarea {...a} rows={2} value={v.notes} onChange={set("notes")} />}</FormField></div>
           <fieldset className="border border-champagne bg-white p-4 sm:col-span-2"><legend className="px-1 text-sm font-medium">Payment</legend>
             <label className="flex items-center gap-3"><input type="radio" checked readOnly className="h-5 w-5 accent-[#641E2B]" /><span>Cash on Delivery (COD)</span></label><p className="mt-1 text-xs text-muted">Pay in cash when your order arrives. We never ask for card or bank details.</p></fieldset>
-          <button type="submit" className="min-h-12 bg-maroon px-6 font-medium text-ivory hover:bg-burgundy sm:col-span-2">Place demo order</button>
+          <button type="submit" className="min-h-12 bg-maroon px-6 font-medium text-ivory hover:bg-burgundy sm:col-span-2">Place order</button>
         </form>
         <aside className="h-fit border border-champagne bg-white p-5" aria-label="Order summary">
           <h2 className="text-xl">Order summary</h2>
